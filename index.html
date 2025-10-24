@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CONGA!</title>
+
+  <!-- Preload the main GIF (ghosts use the same file) and audio -->
+  <link rel="preload" as="image" href="./200.gif">
+  <link rel="preload" as="audio" href="./ms.mp3">
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+<!-- Start gate -->
+<div id="gate">
+  <h1></h1>
+  <button id="go">Trust me Dumbass</button>
+  <p class="hint"></p>
+</div>
+
+<!-- Stage -->
+<div id="stage" aria-hidden="true">
+  <div id="ghosts" aria-hidden="true"></div>
+
+  <!-- Main dancer (this file is reused for ghosts) -->
+  <img id="dancer" src="./200.gif" alt="dancing kitty" />
+
+  <div id="caption">CONGA!</div>
+
+  <!-- Looping audio with fallback UI if autoplay fails -->
+  <p id="audio-warning" hidden>Couldn’t start audio automatically. Use the controls below.</p>
+  <div id="audio-controls" hidden>
+    <audio id="song" preload="auto" loop controls>
+      <source src="./ms.mp3" type="audio/mpeg" />
+      <source src="./ms.m4a" type="audio/mp4" />
+      Your browser doesn’t support HTML5 audio.
+    </audio>
+  </div>
+</div>
+
+<script src="./main.js"></script>
+</body>
+</html>
